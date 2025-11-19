@@ -18,8 +18,8 @@ public class Item {
     private Long itemID;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "item_type")
-    private CafeItemType type;
+    @Column(name = "item_category")
+    private CCategory category;
 
     @Column(name = "item_name")
     @NotNull(message = "Item name cannot be null")

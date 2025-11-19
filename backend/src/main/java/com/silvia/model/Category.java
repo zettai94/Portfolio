@@ -1,5 +1,5 @@
 package com.silvia.model;
-public enum CafeItemType {
+public enum Category {
     BEVERAGE,
     CAKE,
     PASTRY,
