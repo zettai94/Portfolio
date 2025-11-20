@@ -9,21 +9,21 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 @Entity
-@Table(name ="products")
+@Table(name ="product")
 @Getter @Setter
 @NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue
     @Column(name = "productID")
-    private Long productID;
+    private Long productId;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "product_category")
     @NotNull(message = "Pick a category for the product")
     private Category category;
 
-    @Column(name = "product_name")
+    @Column(name = "product_name", unique = true)
     @NotNull(message = "Product name cannot be null")
     private String productName;
 
@@ -34,7 +34,7 @@ public class Product {
     //this is used to autolink tracked inventory products
     //one to one relationship; auto cascade when product is deleted
     //lazy fetch to avoid loading inventory data unless needed (beverage not tracked)
-    @OneToOne(mappedBy = "products", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Inventory inventory;
 
     //constructors in progress
