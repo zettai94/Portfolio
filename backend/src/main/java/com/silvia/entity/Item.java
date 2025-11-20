@@ -19,7 +19,7 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "item_category")
-    private CCategory category;
+    private Category category;
 
     @Column(name = "item_name")
     @NotNull(message = "Item name cannot be null")
